@@ -1,13 +1,17 @@
 import React from 'react';
+import {AppBar, Tabs, Tab, Box, Typography, Toolbar} from '@material-ui/core';
 
 
+const NavBar = () => {
+	return (
+		<Box component= 'nav'>
+			<AppBar title= 'shuffle' style={{backgroundColor: 'black'}}>
+                <Toolbar>
+                    <Typography variant= 'h5' style= {{color: "#00FFFF"}}> Login/Signup </Typography>
+                </Toolbar>
+            </AppBar>
+		</Box>
+	);
+};
 
- const NavBar = () => {
-    return(
-        <div>
-            <h1> Navigation component</h1>
-        </div>
-    )
-}
-
-export default NavBar
+export default NavBar;
