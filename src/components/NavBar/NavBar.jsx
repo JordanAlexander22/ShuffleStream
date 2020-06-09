@@ -1,20 +1,19 @@
 import React from 'react';
-import {AppBar, Link, Box, Typography, Toolbar} from '@material-ui/core';
-import "../NavBar/NavBar.module.css"
-
+import {AppBar, Link, Tabs, Tab, Box, Typography, Toolbar} from '@material-ui/core';
+import styles from "../NavBar/NavBar.module.css"
+import pngwave from '../../images/pngwave.png'
 
 
 const NavBar = () => {
 	return (
         <>
 		<Box component= 'nav'  >
-			<AppBar title= 'shuffle' position= 'relative' style={{backgroundColor: 'black', display: 'flex', justifyContent: 'flex-end'}}>
-                <Toolbar style= {{display:'flex', justifyContent: 'flex-end'}}>
-                    <Typography variant= 'h6'>
-                        <Link href= '#'  style= {{color: "#00FFFF",display:'flex'}} variant= 'inherent' >
-                            Login/SignUp
-                        </Link>
-                    </Typography>
+			<AppBar title= {<img className= {styles.image} src= {pngwave} alt= 'Logo'/>} position= 'relative' style={{backgroundColor: 'black', display: 'flex', justifyContent: 'flex-end'}}>
+                <Toolbar style= {{display:'flex', justifyContent: 'space-between'}}>
+                <img className= {styles.image} src= {pngwave} alt= 'Logo'/>
+                  <Tabs>
+                      <Tab href= "#" style= {{color: "#00ffff"}} label= "SignUp/Login"></Tab>
+                  </Tabs>
                 </Toolbar>
             </AppBar>
 		</Box>

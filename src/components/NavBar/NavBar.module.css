@@ -1,5 +1,12 @@
 .nav{
     display: flex;
     flex-direction: row-reverse;
-    
+
+}
+
+.image{
+    display: flex;
+    width: 3rem;
+    align-items: flex-end
+
 }
