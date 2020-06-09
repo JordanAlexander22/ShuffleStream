@@ -12,8 +12,8 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>welcome {this.state.name}</h2>
 				<NavBar />
+        <span><h5>welcome {this.state.name}</h5></span>
 			</div>
 		);
 	}
