@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom';
 
 import { NavBar } from './components';
 
@@ -11,10 +12,9 @@ export default class App extends React.Component {
 	}
 	render() {
 		return (
-			<div>
-				<NavBar />
-        <span><h5>welcome {this.state.name}</h5></span>
-			</div>
+			<Switch>
+				<Route exact path="/:page?" render={props => <NavBar {...props} />} />
+      </Switch>
 		);
 	}
 }

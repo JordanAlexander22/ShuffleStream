@@ -1,22 +1,45 @@
-import React from 'react';
-import {AppBar, Link, Tabs, Tab, Box, Typography, Toolbar} from '@material-ui/core';
-import styles from "../NavBar/NavBar.module.css"
-import pngwave from '../../images/pngwave.png'
+import React, {useState} from 'react';
+import {AppBar, Tabs, Tab, Box, Typography, Toolbar} from '@material-ui/core';
+import styles from "../NavBar/NavBar.module.css";
+import pngwave from '../../images/pngwave.png';
+import {withRouter} from 'react-router-dom';
+import Registration from '../Registration/Registration';
+import Home from '../Home/Home';
+
+const NavBar = (props) => {
+    const {match, history} = props;
+    const {params} = match;
+    const { page } = params;
+
+    const tabNameToIndex = {
+        0: "Registration",
+        1: "Home"
+      };
+
+      const indexToTabName = {
+        Registration: 0,
+        Home: 1
+      };
 
 
-const NavBar = () => {
+    const [selectedTab, setSelectedTab] = useState(0)
+
+    const handleChange = (event, newValue) => {
+        history.push(`/${tabNameToIndex[newValue]};`)
+        setSelectedTab(newValue)
+    }
 	return (
         <>
-		<Box component= 'nav'  >
-			<AppBar title= {<img className= {styles.image} src= {pngwave} alt= 'Logo'/>} position= 'relative' style={{backgroundColor: 'black', display: 'flex', justifyContent: 'flex-end'}}>
+		    <AppBar title= {<img className= {styles.image} src= {pngwave} alt= 'Logo'/>} position= 'relative' style={{backgroundColor: 'black', display: 'flex', justifyContent: 'flex-end'}}>
                 <Toolbar style= {{display:'flex', justifyContent: 'space-between'}}>
                 <img className= {styles.image} src= {pngwave} alt= 'Logo'/>
-                  <Tabs>
-                      <Tab href= "#" style= {{color: "#00ffff"}} label= "SignUp/Login"></Tab>
+                  <Tabs value= {selectedTab} onChange= {handleChange}>
+                      <Tab style= {{color: "#00ffff"}} label= "SignUp/Login"></Tab>
                   </Tabs>
                 </Toolbar>
             </AppBar>
-		</Box>
+        {selectedTab === 0 && <Registration/>}
+        {selectedTab === 1 && <Home/>}
         </>
 	);
 };
