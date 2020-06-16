@@ -22,7 +22,7 @@ const NavBar = (props) => {
       };
 
 
-    const [selectedTab, setSelectedTab] = useState(0)
+    const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
 
     const handleChange = (event, newValue) => {
         history.push(`/${tabNameToIndex[newValue]};`)
