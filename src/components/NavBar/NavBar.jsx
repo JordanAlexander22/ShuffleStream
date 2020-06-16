@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {AppBar, Tabs, Tab, Box, Typography, Toolbar} from '@material-ui/core';
+import {AppBar, Tabs, Tab, Toolbar} from '@material-ui/core';
 import styles from "../NavBar/NavBar.module.css";
 import pngwave from '../../images/pngwave.png';
-import {withRouter} from 'react-router-dom';
 import Registration from '../Registration/Registration';
 import Home from '../Home/Home';
 
@@ -22,7 +21,7 @@ const NavBar = (props) => {
       };
 
 
-    const [selectedTab, setSelectedTab] = React.useState(indexToTabName[page]);
+    const [selectedTab, setSelectedTab] = useState(indexToTabName[page]);
 
     const handleChange = (event, newValue) => {
         history.push(`/${tabNameToIndex[newValue]};`)
@@ -33,7 +32,7 @@ const NavBar = (props) => {
 		    <AppBar title= {<img className= {styles.image} src= {pngwave} alt= 'Logo'/>} position= 'relative' style={{backgroundColor: 'black', display: 'flex', justifyContent: 'flex-end'}}>
                 <Toolbar style= {{display:'flex', justifyContent: 'space-between'}}>
                 <img className= {styles.image} src= {pngwave} alt= 'Logo'/>
-                  <Tabs value= {selectedTab} onChange= {handleChange}>
+                  <Tabs  value= {selectedTab} onChange= {handleChange}>
                       <Tab style= {{color: "#00ffff"}} label= "SignUp/Login"></Tab>
                   </Tabs>
                 </Toolbar>
