@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
-import { NavBar } from './components';
+import { NavBar, Home } from './components';
 
 export default class App extends React.Component {
 	constructor() {
@@ -12,9 +12,12 @@ export default class App extends React.Component {
 	}
 	render() {
 		return (
+			<>
 			<Switch>
 				<Route exact path="/:page?" render={props => <NavBar {...props} />} />
       </Switch>
+	  <Home/>
+	  </>
 		);
 	}
 }
