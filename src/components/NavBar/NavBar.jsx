@@ -3,7 +3,7 @@ import {AppBar, Tabs, Tab, Toolbar} from '@material-ui/core';
 import styles from "../NavBar/NavBar.module.css";
 import pngwave from '../../images/pngwave.png';
 import Registration from '../Registration/Registration';
-import Home from '../Home/Home';
+import Login from '../Login/Login';
 
 const NavBar = (props) => {
     const {match, history} = props;
@@ -12,7 +12,7 @@ const NavBar = (props) => {
 
     const tabNameToIndex = {
         0: "Registration",
-        1: "Home"
+        1: "Login"
       };
 
       const indexToTabName = {
@@ -33,12 +33,13 @@ const NavBar = (props) => {
                 <Toolbar style= {{display:'flex', justifyContent: 'space-between'}}>
                 <img className= {styles.image} src= {pngwave} alt= 'Logo'/>
                   <Tabs  value= {selectedTab} onChange= {handleChange}>
-                      <Tab style= {{color: "#00ffff"}} label= "SignUp/Login"></Tab>
+                      <Tab style= {{color: "#00ffff"}} label= "SignUp"></Tab>
+                      <Tab style= {{color: "#00ffff"}} label= "Login"></Tab>
                   </Tabs>
                 </Toolbar>
             </AppBar>
         {selectedTab === 0 && <Registration/>}
-        {selectedTab === 1 && <Home/>}
+        {selectedTab === 1 && <Login/>}
         </>
 	);
 };
