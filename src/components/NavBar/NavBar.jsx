@@ -18,9 +18,9 @@ const NavBar = (props) => {
       };
 
       const indexToTabName = {
-        Registration: 0,
-        Login: 1,
-        Home: 2
+        Home: 0,
+        Registration: 1,
+        Login: 2
       };
 
 
