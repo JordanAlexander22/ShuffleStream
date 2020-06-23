@@ -10,9 +10,9 @@ import {
 	Container
 } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { makeStyles } from '@material-ui/core/styles';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	avatar: {
 		margin: theme.spacing(1),
-		backgroundColor: theme.palette.info.light
+		backgroundColor: theme.palette.info.dark
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
@@ -41,7 +41,7 @@ function Registration() {
 		<Container component="main" maxWidth="xs">
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}>
-					<AccountCircleIcon />
+					<VideogameAssetIcon />
 				</Avatar>
 				<Typography component="h1" variant="h5">
 					Sign Up
@@ -98,3 +98,4 @@ function Registration() {
 }
 
 export default Registration;
+ 
