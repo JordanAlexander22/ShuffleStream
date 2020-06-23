@@ -56,7 +56,7 @@ export default function Home() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              Shuffle'd Dash
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
@@ -66,13 +66,13 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
+                  <Button variant="contained" color="primary" style= {{color: "#00ffff"}}>
+                    Shuffle Music
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button variant="contained" color="primary" style= {{color: "#00ffff"}}>
+                    Shuffle Gaming
                   </Button>
                 </Grid>
               </Grid>
