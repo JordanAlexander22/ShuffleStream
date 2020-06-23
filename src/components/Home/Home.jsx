@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {fetchStreams} from '../../api'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -92,7 +93,7 @@ export default function Home() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Games
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe the content.
