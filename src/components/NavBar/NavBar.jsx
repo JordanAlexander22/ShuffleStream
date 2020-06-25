@@ -5,6 +5,7 @@ import pngwave from '../../images/pngwave.png';
 import Registration from '../Registration/Registration';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
+import Games from '../Games';
 
 const NavBar = (props) => {
     const {match, history} = props;
@@ -14,13 +15,15 @@ const NavBar = (props) => {
     const tabNameToIndex = {
         0: "Home",
         1: "Sign Up",
-        2: "Login"
+        2: "Login",
+        3: "Games"
       };
 
       const indexToTabName = {
         Home: 0,
         Registration: 1,
-        Login: 2
+        Login: 2, 
+        Games: 3
       };
 
 
@@ -39,12 +42,14 @@ const NavBar = (props) => {
                       <Tab style= {{color: "#00ffff"}} label= "Home"></Tab>
                       <Tab style= {{color: "#00ffff"}} label= "SignUp"></Tab>
                       <Tab style= {{color: "#00ffff"}} label= "Login"></Tab>
+                      <Tab style= {{color: "#00ffff"}} label= "Games"></Tab>
                   </Tabs>
                 </Toolbar>
             </AppBar>
         {selectedTab === 0 && <Home/>}
         {selectedTab === 1 && <Registration/>}
         {selectedTab === 2 && <Login/>}
+        {selectedTab === 3 && <Games/>}
         </>
 	);
 };
