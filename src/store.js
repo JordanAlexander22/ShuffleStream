@@ -1,17 +1,8 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
+const middleware = [ thunk ];
 
+const store = createStore(() => [], {}, applyMiddleware(...middleware));
 
-
-const store= createStore(() => [], {}, applyMiddleware());
-
-
-
-
-
-
-
-
-
-export default store
+export default store;
