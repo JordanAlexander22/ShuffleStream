@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchStreams } from '../actions/streamActions';
 
 class Games extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchStreams();
   }
 
