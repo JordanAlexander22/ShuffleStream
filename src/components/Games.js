@@ -15,16 +15,16 @@ class Games extends Component {
 //   }
 
   render() {
-    const postItems = this.props.games.map(game => (
-      <div key={game.id}>
-        <h3>{game.title}</h3>
-        <p>{game.body}</p>
+    const streamItems = this.props.data.streams.map(stream => (
+      <div key={stream.id}>
+        <h3>{stream.game}</h3>
+        <p>{stream.viewers}</p>
       </div>
     ));
     return (
       <div>
         <h1>Posts</h1>
-        {postItems}
+        {streamItems}
       </div>
     );
   }
@@ -32,11 +32,11 @@ class Games extends Component {
 
 Games.propTypes = {
   fetchStreams: PropTypes.func.isRequired,
-  games: PropTypes.array.isRequired,
+  streams: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
-  games: state.games.items
+  streams: state.streams.data
 });
 
 export default connect(mapStateToProps, { fetchStreams })(Games);

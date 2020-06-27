@@ -1,7 +1,7 @@
 import { FETCH_GAME_STREAMS } from "../actions/types";
 
 const initialState = {
-  items: [],
+  data: [],
 };
 
 export default function (state = initialState, action) {
@@ -9,7 +9,7 @@ export default function (state = initialState, action) {
     case FETCH_GAME_STREAMS:
       return {
         ...state,
-        items: action.payload,
+        data: action.payload,
       };
     default:
       return state;
