@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { fetchStreams } from '../actions/streamActions';
 
 class Games extends Component {
+
+
   componentDidMount() {
     this.props.fetchStreams();
   }
@@ -15,7 +17,7 @@ class Games extends Component {
 //   }
 
   render() {
-    const streamItems = this.props.data.streams.map(stream => (
+    const streamItems = this.props.streams.map(stream => (
       <div key={stream.id}>
         <h3>{stream.game}</h3>
         <p>{stream.viewers}</p>
@@ -36,7 +38,7 @@ Games.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  streams: state.streams.data
+  streams: state.streams
 });
 
 export default connect(mapStateToProps, { fetchStreams })(Games);
