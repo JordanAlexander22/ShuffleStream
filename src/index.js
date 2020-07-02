@@ -1,30 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import { Provider } from 'react-redux';
-import store from './store'
-
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import CssBaseline from "@material-ui/core/Cssbaseline";
+import "./index.css";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import CssBaseline from '@material-ui/core/Cssbaseline';
-
+import store from './store';
 
 
 ReactDOM.render(
-  <Provider store= {store}>
-  <React.StrictMode>
-    <Router>  
-    <CssBaseline>
-    <App />
-    </CssBaseline>
-    </Router>
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <Router>
+        <CssBaseline>
+          <App />
+        </CssBaseline>
+      </Router>
+    </React.StrictMode>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -8,6 +8,8 @@ import Home from '../Home/Home';
 import Games from '../Games';
 import Test from '../test';
 
+import store from '../../store'
+
 const NavBar = (props) => {
     const {match, history} = props;
     const {params} = match;
@@ -53,7 +55,7 @@ const NavBar = (props) => {
         {selectedTab === 0 && <Home/>}
         {selectedTab === 1 && <Registration/>}
         {selectedTab === 2 && <Login/>}
-        {selectedTab === 3 && <Games/>}
+        {selectedTab === 3 && <Games store= {store}/>}
         {selectedTab === 4 && <Test/>}
         </>
 	);

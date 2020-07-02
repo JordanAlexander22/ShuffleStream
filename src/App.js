@@ -8,17 +8,15 @@ import test from './components/test';
 
 
 export default class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "jordan",
+      
     };
   }
 
 
   render() {
-    let bork = test.get();
-    console.log(bork);
     return (
       <>
         <Switch>
@@ -28,7 +26,6 @@ export default class App extends React.Component {
             render={(props) => <NavBar {...props} />}
           />
           <Route exact path="/" component={Home} />
-         
         </Switch>
       </>
     );

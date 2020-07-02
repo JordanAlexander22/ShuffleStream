@@ -1,19 +1,25 @@
-import {applyMiddleware, createStore} from 'redux';
+// import {applyMiddleware, createStore} from 'redux';
 
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-import rootReducer from './reducers';
-import thunk from 'redux-thunk';
+// import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+// import rootReducer from './reducers';
+// import thunk from 'redux-thunk';
 
-const initialState = {};
+// const initialState = {};
 
-const middleware = [thunk];
+// const middleware = [thunk];
 
-const store = createStore(
-    rootReducer,
-    initialState,
-    composeWithDevTools(
-        applyMiddleware(...middleware),
-    )
-)
+// const store = createStore(
+//     rootReducer,
+//     initialState,
+//     composeWithDevTools(
+//         applyMiddleware(...middleware),
+//     )
+// )
 
-export default store; 
+// export default store;
+
+import { createStore } from "redux";
+import TwitchApp from "./reducers/TwitchAPP";
+
+let Store = createStore(TwitchApp);
+export default Store;
