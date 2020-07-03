@@ -15,4 +15,3 @@ export default class GameCard extends React.Component {
     )
   }
 }
-// export default GameCard;

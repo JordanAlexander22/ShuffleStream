@@ -6,19 +6,19 @@ import FetchRequest from "../actions/FetchRequest";
 import FetchSuccess from "../actions/FetchSuccess";
 import FetchFailure from "../actions/FetchFailure";
 import test from "./test";
-import GameCard  from "./GameCard";
+import GameCard from "./GameCard";
 
 class Games extends Component {
   componentDidMount() {
     test
       .get()
       .then((response) => {
-        const streams = response.data.streams.map(stream=> {
-            return stream.game
-        })
-        this.dispatchFetchSuccess();
+        const streams = response.data.streams.map((stream) => {
+          return stream;
+        });
+        this.dispatchFetchSuccess(streams);
         //console.log(response.data.streams);
-        console.log(streams)
+        console.log(streams);
       })
       .catch((error) => {
         console.log(error);
@@ -35,10 +35,10 @@ class Games extends Component {
       <GameCard
         key={stream._id}
         streamCover={stream.preview.medium}
-        streamLink={stream.channel.url}
+        streamLink={stream.channel.logo}
       />
     ));
-    return <div></div>;
+    return <div>{gameCardItems}</div>;
   }
 }
 
