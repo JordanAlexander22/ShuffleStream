@@ -5,12 +5,14 @@ import { getState } from "redux";
 import FetchRequest from "../actions/FetchRequest";
 import FetchSuccess from "../actions/FetchSuccess";
 import FetchFailure from "../actions/FetchFailure";
+
 import test from "./test";
 import GameCard from "./GameCard";
 import "../styles/main.css";
 
 class Games extends Component {
   componentDidMount() {
+    this.dispatchFetchRequest();
     test
       .get()
       .then((response) => {
@@ -22,21 +24,31 @@ class Games extends Component {
         console.log(streams);
       })
       .catch((error) => {
+        this.dispatchFetchFailure(error);
         console.log(error);
       });
+  }
+
+  dispatchFetchRequest () {
+    this.props.store.dispatch(FetchRequest());
   }
 
   dispatchFetchSuccess(streams) {
     this.props.store.dispatch(FetchSuccess(streams));
   }
 
+  dispatchFetchFailure (error) {
+    this.props.store.dispatch(FetchFailure(error));
+  }
+
+
+
   render() {
-    const { classes } = this.props;
     const stateProps = this.props.store.getState();
     const gameCardItems = stateProps.streams.map((stream) => (
       <GameCard
         key={stream._id}
-        streamCover={stream.preview.medium}
+        streamCover={stream.preview.medium} 
         streamLink={stream.channel.url}
         streamBork={stream.channel.game}
         // streamDes={stream.channel.description}
