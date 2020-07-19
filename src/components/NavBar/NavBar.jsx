@@ -6,8 +6,6 @@ import Registration from '../Registration/Registration';
 import Login from '../Login/Login';
 import Home from '../Home/Home';
 import Games from '../Games';
-import Test from '../test';
-import Index from '../indexx'
 import store from '../../store'
 
 const NavBar = (props) => {
@@ -20,8 +18,6 @@ const NavBar = (props) => {
         1: "Sign Up",
         2: "Login",
         3: "Games",
-        4: "Test",
-        5: "Index"
       };
 
       const indexToTabName = {
@@ -29,8 +25,6 @@ const NavBar = (props) => {
         Registration: 1,
         Login: 2, 
         Games: 3,
-        Test: 4,
-        Index: 5
       };
 
 
@@ -50,8 +44,6 @@ const NavBar = (props) => {
                       <Tab style= {{color: "#00ffff"}} label= "SignUp"></Tab>
                       <Tab style= {{color: "#00ffff"}} label= "Login"></Tab>
                       <Tab style= {{color: "#00ffff"}} label= "Games"></Tab>
-                      <Tab style= {{color: "#00ffff"}} label= "Test"></Tab>
-                      <Tab style= {{color: "#00ffff"}} label= "Index"></Tab>
                   </Tabs>
                 </Toolbar>
             </AppBar>
@@ -59,8 +51,6 @@ const NavBar = (props) => {
         {selectedTab === 1 && <Registration/>}
         {selectedTab === 2 && <Login/>}
         {selectedTab === 3 && <Games store= {store}/>}
-        {selectedTab === 4 && <Test/>}
-        {selectedTab === 4 && <Index/>}
         </>
 	);
 };
