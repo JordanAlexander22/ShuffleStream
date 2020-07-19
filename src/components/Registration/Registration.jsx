@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-	Button,
-	Grid,
-	Avatar,
-	Typography,
-	Checkbox,
-	Link,
-	TextField,
-	Container
-} from '@material-ui/core';
+import { Button, Grid, Avatar, Typography, Checkbox, Link, TextField, Container } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2)
-    }
+	}
 }));
 
 function Registration() {
@@ -83,7 +74,7 @@ function Registration() {
 					<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
 						Register Now!
 					</Button>
-					<Grid container justify= 'center'>
+					<Grid container justify="center">
 						<Grid item>
 							<Link href="#" variant="body2">
 								{'Have a twitter? Sign in With Twitter here'}
@@ -98,4 +89,3 @@ function Registration() {
 }
 
 export default Registration;
- 
