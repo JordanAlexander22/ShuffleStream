@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import { NavBar } from "./components";
 import Home from "./components/Home/Home";
-
+import Index from './components/indexx'
 
 
 
@@ -26,6 +26,7 @@ export default class App extends React.Component {
             render={(props) => <NavBar {...props} />}
           />
           <Route exact path="/" component={Home} />
+          <Route path="/index" component={Index} />
         </Switch>
       </>
     );

@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/main.css";
 import "../styles/heart.scss";
-import {Link} from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 export default class GameCard extends React.Component {
+  
   render() {
     return (
       <div className="full-card">
@@ -15,7 +16,7 @@ export default class GameCard extends React.Component {
               alt="/"
             />
           </a>
-          <h2>{this.props.streamBork}</h2>
+          <h2>{this.props.streamTitle}</h2>
           <input id="toggle-heart" type="checkbox" />
           <label for="toggle-heart">❤</label>
         </div>
