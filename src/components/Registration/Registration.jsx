@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Grid, Avatar, Typography, Checkbox, Link, TextField, Container } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { makeStyles } from '@material-ui/core/styles';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
+//import axiosWithAuth from '../../api/axiosWithAuth';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -25,8 +27,40 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-function Registration() {
+const Registration = (props) => {
+	const [user, setUser] = useState({
+		email: "",
+		username: "",
+		password: ""
+	});;
+
+	const handleChange = e => {
+		setUser({
+			...user,
+			[e.target.name]: e.target.value
+		});
+	};
+	
+	
 	const classes = useStyles();
+
+
+	const onSubmit = e => {
+		e.preventDefault();
+		axios
+			.post("http://localhost:5000/users/add",{user})
+			.then(res => {
+				console.log(res.response);
+				Registration({
+					email: "",
+					username: "",
+					password:""
+				})
+			})
+			.catch(error => console.log(error))
+
+	}
+	
 
 	return (
 		<Container component="main" maxWidth="xs">
@@ -37,7 +71,7 @@ function Registration() {
 				<Typography component="h1" variant="h5">
 					Sign Up
 				</Typography>
-				<form className={classes.form} noValidate>
+				<form className={classes.form} onSubmit= {onSubmit} noValidate>
 					<TextField
 						variant="outlined"
 						margin="normal"
@@ -48,16 +82,18 @@ function Registration() {
 						name="email"
 						autoComplete="email"
 						autoFocus
+						onChange= {handleChange}
 					/>
 					<TextField
 						variant="outlined"
 						margin="normal"
 						required
 						fullWidth
-						id="name"
-						label="Username"
-						name="name"
+						id="username"
+						label="username"
+						name="username"
 						autoComplete="username"
+						onChange= {handleChange}
 					/>
 					<TextField
 						variant="outlined"
@@ -69,6 +105,7 @@ function Registration() {
 						type="password"
 						id="password"
 						autoComplete="current-password"
+						onChange= {handleChange}
 					/>
 					<FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
 					<Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>

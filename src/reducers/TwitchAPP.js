@@ -1,20 +1,3 @@
-// import { FETCH_GAME_STREAMS } from "../actions/types";
-
-// const initialState = {
-//   streams: [],
-// };
-
-// export default function(state = initialState, action) {
-//   switch (action.type) {
-//     case FETCH_GAME_STREAMS:
-//       return {
-//         ...state,
-//         streams: action.payload,
-//       };
-//     default:
-//       return state;
-//   }
-// }
 
 const initialState = {
   status: "",
@@ -22,7 +5,7 @@ const initialState = {
   error: "",
 };
 
-function TwitchApp(state = initialState, action) {
+export default function TwitchApp(state = initialState, action) {
   switch (action.type) {
     case "FETCH_REQUEST":
       const requested = Object.assign({}, state, {
@@ -45,4 +28,3 @@ function TwitchApp(state = initialState, action) {
       return state;
   }
 }
-export default TwitchApp;
