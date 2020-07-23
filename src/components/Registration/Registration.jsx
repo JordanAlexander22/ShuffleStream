@@ -7,7 +7,9 @@ import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 //import axiosWithAuth from '../../api/axiosWithAuth';
 import axios from 'axios';
 
-const useStyles = makeStyles((theme) => ({
+
+// cant name useStyles because of hooks within the functional component
+const borkStyles = makeStyles((theme) => ({
 	paper: {
 		marginTop: theme.spacing(8),
 		display: 'flex',
@@ -42,15 +44,15 @@ const Registration = (props) => {
 	};
 	
 	
-	const classes = useStyles();
+	const classes = borkStyles();
 
 
 	const onSubmit = e => {
 		e.preventDefault();
 		axios
-			.post("http://localhost:5000/users/add",{user})
+			.post("http://localhost:5000/users/add",user)
 			.then(res => {
-				console.log(res.response);
+				console.log(res);
 				Registration({
 					email: "",
 					username: "",
