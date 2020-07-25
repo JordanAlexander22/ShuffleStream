@@ -7,6 +7,8 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+
+//signup 
 router.route('/add').post((req, res) => {
     const email = req.body.email
     const username = req.body.username;

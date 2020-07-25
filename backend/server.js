@@ -3,6 +3,8 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 
+
+
 require('dotenv').config();
 
 const app = express();
@@ -10,6 +12,7 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
 
 const uri = process.env.ATLAS_URI;
 
@@ -23,10 +26,12 @@ connection.once('open', () => {
 
 
 const usersRouter = require('./routes/users');
+const authRouter = require('./auth/authRouter')
 
 
 
 app.use('/users', usersRouter);
+app.use('/users', authRouter);
 
 
 app.listen(port, () => {
