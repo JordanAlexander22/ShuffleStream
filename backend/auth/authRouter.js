@@ -7,10 +7,11 @@ const bcrypt = require("bcrypt")
 
 //login
 
+
 router.route('/login').post((req, res) => {
     let { username, password } = req.body;
   
-    User.findBy({ username })
+    User.findOne({ username })
       .first()
       .then(user => {
         console.log(User.Password);
