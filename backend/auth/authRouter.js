@@ -1,35 +1,47 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const User = require("../models/user.model")
-const {newToken} = require("./authMid");
-const bcrypt = require("bcrypt")
-
-
+const User = require('../models/user.model');
+const { newToken } = require('./authMid');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 //login
 
-
 router.route('/login').post((req, res) => {
-    let { username, password } = req.body;
-  
-    User.findOne({ username })
-      .first()
-      .then(user => {
-        console.log(User.Password);
-        if (user && bcrypt.compareSync(password, user.Password)) {
-          const token = newToken(User);
-          res.status(200).json({
-            message: `Welcome Back ${user.UserName}.`,
-            token
-          });
-        } else {
-          res.status(400).json({ message: "Wrong username or password" });
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        res.status(500).json({ message: "failed to login" });
-      });
-  });
-  
+	let body = req.body;
 
-  module.exports = router;
+	User.findOne({ username: body.username }, (err, user) => {
+		if (!user) {
+			return res.status(400).send({
+				ok: false,
+				err: {
+					message: 'Invalid user'
+				}
+			});
+		}
+
+		if (!bcrypt.compareSync(body.password, user.password)) {
+			return res.status(400).send({
+				ok: false,
+				err: {
+					message: 'Invalid key'
+				}
+			});
+		}
+
+		let token = jwt.sign(
+			{
+				dbuser: user
+			},
+			'secret',
+			{ expiresIn: '24h' }
+		);
+
+		res.json({
+			ok: true,
+			dbuser: user,
+			token
+		});
+	});
+});
+
+module.exports = router;
